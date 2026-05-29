@@ -90,7 +90,14 @@
   <h1>Convertir PNG a WebP — Gratis y Online</h1>
   <p class="subtitle">Convierte tus archivos PNG a WebP en segundos. Sin registro, sin subida de archivos, 100% en tu navegador.</p>
 
-  <div id="dropzone">
+  <!-- FORMAT BUTTONS -->
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:28px;">
+  <a href="/" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--surface);color:var(--text);border:1.5px solid var(--border);border-radius:8px;text-decoration:none;font-size:0.88rem;font-weight:600;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">🔄 Todos los formatos</a>
+  <a href="/jpg-a-webp/" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--surface);color:var(--text);border:1.5px solid var(--border);border-radius:8px;text-decoration:none;font-size:0.88rem;font-weight:600;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">🖼️ JPG a WebP</a>
+  <a href="/png-a-webp/" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--primary);color:#fff;border-radius:8px;text-decoration:none;font-size:0.88rem;font-weight:700;">🖼️ PNG a WebP</a>
+  <a href="/jpeg-a-webp/" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--surface);color:var(--text);border:1.5px solid var(--border);border-radius:8px;text-decoration:none;font-size:0.88rem;font-weight:600;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">🖼️ JPEG a WebP</a>
+</div>
+<div id="dropzone">
     <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,image/jpeg,image/png" multiple />
     <div class="drop-icon">🖼️</div>
     <div class="drop-label">Arrastra tus imágenes PNG aquí</div>
