@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JPG to WebP Converter — Free, Instant, No Upload | jpgtowebp.com</title>
+  <meta name="description" content="Convert JPG, JPEG and PNG images to WebP free and instantly. No upload needed — 100% in your browser. Fast, private and unlimited." />
+  <meta name="keywords" content="jpg to webp, png to webp, convert image to webp, jpeg to webp, webp converter free, convertir jpg a webp" />
+  <meta property="og:title" content="JPG to WebP Converter — Free & Instant" />
+  <meta property="og:description" content="Convert JPG, JPEG and PNG to WebP directly in your browser. Free, fast and private. No files uploaded." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jpgtowebp.com/" />
+  <link rel="canonical" href="https://jpgtowebp.com/" />
+
+  <!-- ================================================
+       GOOGLE ADSENSE — reemplaza ca-pub-XXXXXXXXXXXXXXXX
+       ================================================ -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f9fb;
+      --surface: #ffffff;
+      --border: #e2e6ea;
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --text: #1e1e2e;
+      --muted: #6b7280;
+      --success: #16a34a;
+      --radius: 14px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ---- HEADER ---- */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .logo span { color: var(--text); }
+
+    /* ---- AD BANNER TOP ---- */
+    .ad-banner {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      min-height: 100px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .ad-placeholder {
+      width: 100%;
+      max-width: 728px;
+      height: 90px;
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* ---- MAIN ---- */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 36px;
+      font-size: 1rem;
+    }
+
+    /* ---- DROP ZONE ---- */
+    #dropzone {
+      border: 2.5px dashed var(--primary);
+      border-radius: var(--radius);
+      background: #eef2ff;
+      padding: 52px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      position: relative;
+    }
+    #dropzone.dragover {
+      background: #e0e7ff;
+      border-color: var(--primary-hover);
+    }
+    #dropzone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .drop-icon { font-size: 2.8rem; margin-bottom: 12px; }
+    .drop-label { font-size: 1.1rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    .drop-sub { color: var(--muted); font-size: 0.9rem; }
+
+    /* ---- QUALITY SLIDER ---- */
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 28px 0 20px;
+      flex-wrap: wrap;
+    }
+    .controls label { font-weight: 600; white-space: nowrap; font-size: 0.95rem; }
+    #quality { flex: 1; min-width: 160px; accent-color: var(--primary); }
+    #qualityVal {
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 36px;
+      text-align: right;
+    }
+    .btn {
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { background: var(--bg); }
+
+    /* ---- IMAGE GRID ---- */
+    #imageGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-preview {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: var(--bg);
+    }
+    .card-body { padding: 12px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .card-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-meta { font-size: 0.75rem; color: var(--muted); }
+    .card-status {
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: auto;
+    }
+    .card-status.pending   { color: var(--muted); }
+    .card-status.converting { color: #d97706; }
+    .card-status.done      { color: var(--success); }
+    .card-status.error     { color: #dc2626; }
+
+    .card-remove {
+      position: absolute;
+      top: 6px; right: 6px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 24px; height: 24px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .card-preview-wrap { position: relative; }
+
+    /* ---- ACTIONS ROW ---- */
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    /* ---- AD SIDEBAR / MIDDLE ---- */
+    .ad-mid {
+      margin: 32px 0;
+      display: flex;
+      justify-content: center;
+    }
+    .ad-mid .ad-placeholder { max-width: 336px; height: 280px; }
+
+    /* ---- INFO SECTION ---- */
+    .info-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin: 48px 0 32px;
+    }
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .info-card h3 { font-size: 1rem; margin-bottom: 8px; }
+    .info-card p  { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ---- TOAST ---- */
+    #toast {
+      position: fixed;
+      bottom: 24px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--text);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.3s ease;
+      z-index: 999;
+      pointer-events: none;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="/">jpg<span>towebp</span>.com</a>
+  <span style="font-size:0.8rem;color:var(--muted);">100% en tu navegador · Sin subir archivos</span>
+</header>
+
+<!-- AD: BANNER TOP (728×90) -->
+<div class="ad-banner">
+  <!-- Google AdSense — descomentar cuando tengas aprobación
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+  <div class="ad-placeholder">Anuncio 728×90</div>
+</div>
+
+<!-- MAIN -->
+<main>
+  <h1>JPG to WebP Converter — Free &amp; Instant</h1>
+  <p class="subtitle">Convert JPG, JPEG and PNG to WebP in seconds. Free, no upload, 100% in your browser.</p>
+
+  <!-- DROP ZONE -->
+  <div id="dropzone">
+    <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,image/jpeg,image/png" multiple />
+    <div class="drop-icon">🖼️</div>
+    <div class="drop-label">Arrastra tus imágenes aquí</div>
+    <div class="drop-sub">o haz clic para seleccionarlas · Máximo 10 imágenes · JPG, JPEG, PNG</div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <label for="quality">Calidad WebP:</label>
+    <input type="range" id="quality" min="1" max="100" value="85" />
+    <span id="qualityVal">85%</span>
+    <button class="btn btn-primary" id="convertBtn" disabled>⚡ Convertir todo</button>
+    <button class="btn btn-ghost" id="clearBtn" style="display:none">✕ Limpiar</button>
+  </div>
+
+  <!-- IMAGE GRID -->
+  <div id="imageGrid"></div>
+
+  <!-- ACTIONS -->
+  <div class="actions" id="actionsRow" style="display:none">
+    <button class="btn btn-primary" id="downloadAllBtn">⬇️ Descargar todas (.zip)</button>
+  </div>
+
+  <!-- AD: CUADRADO MEDIO (336×280) -->
+  <div class="ad-mid">
+    <!-- Google AdSense — descomentar cuando tengas aprobación
+    <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    -->
+    <div class="ad-placeholder">Anuncio 336×280</div>
+  </div>
+
+  <!-- INFO / SEO -->
+  <div class="info-section">
+    <div class="info-card">
+      <h3>🔒 100% privado</h3>
+      <p>Tus imágenes nunca salen de tu dispositivo. La conversión ocurre directamente en tu navegador sin enviar nada a ningún servidor.</p>
+    </div>
+    <div class="info-card">
+      <h3>⚡ Ultra rápido</h3>
+      <p>Sin esperas de subida ni descarga. La conversión es instantánea gracias a la API Canvas de tu navegador.</p>
+    </div>
+    <div class="info-card">
+      <h3>📉 Archivos más ligeros</h3>
+      <p>WebP reduce el peso de tus imágenes entre un 25% y un 80% respecto a JPG o PNG sin pérdida visible de calidad.</p>
+    </div>
+    <div class="info-card">
+      <h3>🌍 Compatible con todo</h3>
+      <p>WebP está soportado por Chrome, Firefox, Safari, Edge y la mayoría de apps modernas. El formato estándar para la web.</p>
+    </div>
+  </div>
+
+  <section style="margin-bottom:40px;">
+    <h2 style="font-size:1.3rem;margin-bottom:12px;">Why convert JPG to WebP?</h2>
+    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;">
+      WebP is Google's image format designed specifically for the web. It delivers superior compression — both lossy and lossless — meaning sharper images at smaller file sizes. This translates to faster websites, better Google PageSpeed scores, and lower bandwidth costs. Converting your JPG and PNG images to WebP is one of the simplest, highest-impact optimizations you can make. Our free JPG to WebP converter runs entirely in your browser — nothing is uploaded to any server.
+    </p>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 jpgtowebp.com · Free tool · Made with ❤️</p>
+</footer>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script>
+  const MAX_FILES = 10;
+  const fileInput   = document.getElementById('fileInput');
+  const dropzone    = document.getElementById('dropzone');
+  const imageGrid   = document.getElementById('imageGrid');
+  const convertBtn  = document.getElementById('convertBtn');
+  const clearBtn    = document.getElementById('clearBtn');
+  const actionsRow  = document.getElementById('actionsRow');
+  const downloadAllBtn = document.getElementById('downloadAllBtn');
+  const qualitySlider  = document.getElementById('quality');
+  const qualityVal     = document.getElementById('qualityVal');
+  const toast          = document.getElementById('toast');
+
+  let files = [];         // { file, previewUrl, webpBlob, status }
+  let toastTimer;
+
+  /* ---- TOAST ---- */
+  function showToast(msg, duration = 3000) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), duration);
+  }
+
+  /* ---- QUALITY SLIDER ---- */
+  qualitySlider.addEventListener('input', () => {
+    qualityVal.textContent = qualitySlider.value + '%';
+  });
+
+  /* ---- DRAG & DROP ---- */
+  dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('dragover'); });
+  dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropzone.classList.remove('dragover');
+    handleFiles(Array.from(e.dataTransfer.files));
+  });
+  fileInput.addEventListener('change', () => {
+    handleFiles(Array.from(fileInput.files));
+    fileInput.value = '';
+  });
+
+  /* ---- HANDLE FILES ---- */
+  function handleFiles(incoming) {
+    const allowed = ['image/jpeg', 'image/png'];
+    const valid   = incoming.filter(f => allowed.includes(f.type));
+
+    if (valid.length < incoming.length) {
+      showToast('Solo se aceptan JPG, JPEG y PNG.');
+    }
+
+    const slots = MAX_FILES - files.length;
+    if (slots <= 0) { showToast(`Límite de ${MAX_FILES} imágenes alcanzado.`); return; }
+
+    const toAdd = valid.slice(0, slots);
+    if (valid.length > slots) showToast(`Solo se añadieron ${slots} imagen(es). Límite: ${MAX_FILES}.`);
+
+    toAdd.forEach(file => {
+      const entry = { file, previewUrl: URL.createObjectURL(file), webpBlob: null, status: 'pending', id: Date.now() + Math.random() };
+      files.push(entry);
+      renderCard(entry);
+    });
+
+    updateUI();
+  }
+
+  /* ---- RENDER CARD ---- */
+  function renderCard(entry) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.id = entry.id;
+
+    const sizeMB = (entry.file.size / 1024).toFixed(1);
+
+    card.innerHTML = `
+      <div class="card-preview-wrap">
+        <img class="card-preview" src="${entry.previewUrl}" alt="${entry.file.name}" />
+        <button class="card-remove" title="Eliminar">✕</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name" title="${entry.file.name}">${entry.file.name}</div>
+        <div class="card-meta">${sizeMB} KB · ${entry.file.type.split('/')[1].toUpperCase()}</div>
+        <div class="card-status pending">Pendiente</div>
+      </div>`;
+
+    card.querySelector('.card-remove').addEventListener('click', () => removeFile(entry.id));
+    imageGrid.appendChild(card);
+  }
+
+  /* ---- REMOVE FILE ---- */
+  function removeFile(id) {
+    files = files.filter(f => f.id !== id);
+    const card = imageGrid.querySelector(`[data-id="${id}"]`);
+    if (card) card.remove();
+    updateUI();
+  }
+
+  /* ---- UPDATE UI STATE ---- */
+  function updateUI() {
+    const has = files.length > 0;
+    convertBtn.disabled = !has;
+    clearBtn.style.display = has ? '' : 'none';
+    const allDone = files.length > 0 && files.every(f => f.status === 'done');
+    actionsRow.style.display = allDone ? '' : 'none';
+  }
+
+  /* ---- CONVERT ---- */
+  convertBtn.addEventListener('click', async () => {
+    const quality = parseInt(qualitySlider.value) / 100;
+    convertBtn.disabled = true;
+
+    for (const entry of files) {
+      if (entry.status === 'done') continue;
+      setStatus(entry.id, 'converting', '⏳ Convirtiendo...');
+      try {
+        entry.webpBlob = await convertToWebP(entry.file, quality);
+        const newSizeKB = (entry.webpBlob.size / 1024).toFixed(1);
+        entry.status = 'done';
+        setStatus(entry.id, 'done', `✅ Listo · ${newSizeKB} KB`);
+        addDownloadBtn(entry);
+      } catch (e) {
+        entry.status = 'error';
+        setStatus(entry.id, 'error', '❌ Error al convertir');
+      }
+    }
+
+    convertBtn.disabled = false;
+    updateUI();
+  });
+
+  function setStatus(id, cls, text) {
+    const card = imageGrid.querySelector(`[data-id="${id}"] .card-status`);
+    if (!card) return;
+    card.className = `card-status ${cls}`;
+    card.textContent = text;
+  }
+
+  function addDownloadBtn(entry) {
+    const card = imageGrid.querySelector(`[data-id="${entry.id}"] .card-body`);
+    if (!card || card.querySelector('.btn-dl')) return;
+    const btn = document.createElement('a');
+    btn.className = 'btn btn-ghost btn-dl';
+    btn.style.cssText = 'font-size:0.8rem;padding:6px 12px;margin-top:4px;text-decoration:none;text-align:center;border-radius:6px;border:1px solid var(--border);color:var(--text);cursor:pointer;display:block;';
+    btn.textContent = '⬇️ Descargar';
+    btn.href = URL.createObjectURL(entry.webpBlob);
+    btn.download = entry.file.name.replace(/\.(jpe?g|png)$/i, '') + '.webp';
+    card.appendChild(btn);
+  }
+
+  /* ---- CONVERT FUNCTION ---- */
+  function convertToWebP(file, quality) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width  = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        canvas.toBlob(blob => {
+          if (blob) resolve(blob);
+          else reject(new Error('toBlob failed'));
+        }, 'image/webp', quality);
+      };
+      img.onerror = reject;
+      img.src = URL.createObjectURL(file);
+    });
+  }
+
+  /* ---- DOWNLOAD ALL AS ZIP ---- */
+  downloadAllBtn.addEventListener('click', async () => {
+    const zip = new JSZip();
+    files.forEach(entry => {
+      if (entry.webpBlob) {
+        const name = entry.file.name.replace(/\.(jpe?g|png)$/i, '') + '.webp';
+        zip.file(name, entry.webpBlob);
+      }
+    });
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'imagenes-webp.zip';
+    a.click();
+  });
+
+  /* ---- CLEAR ---- */
+  clearBtn.addEventListener('click', () => {
+    files = [];
+    imageGrid.innerHTML = '';
+    actionsRow.style.display = 'none';
+    updateUI();
+  });
+</script>
+</body>
+</html>
