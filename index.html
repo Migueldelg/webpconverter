@@ -22,6 +22,59 @@
     gtag('config', 'G-BJ08929722');
   </script>
 
+  <!-- Schema markup: SoftwareApplication + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Convertidor WebP — JPG PNG a WebP gratis",
+        "url": "https://www.convertidorwebp.com/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Convierte imágenes JPG, JPEG y PNG a formato WebP gratis y al instante, sin subir archivos a ningún servidor. 100% en tu navegador."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es el formato WebP?",
+            "acceptedAnswer": { "@type": "Answer", "text": "WebP es un formato de imagen moderno desarrollado por Google que ofrece compresión superior a JPG y PNG, tanto con pérdida como sin ella. Las imágenes WebP pesan entre un 25% y un 80% menos que sus equivalentes en JPG o PNG con calidad visual similar." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Es seguro convertir mis imágenes aquí?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí, completamente. La conversión ocurre directamente en tu navegador usando la API Canvas. Tus imágenes nunca se suben a ningún servidor ni salen de tu dispositivo." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué navegadores soportan WebP?",
+            "acceptedAnswer": { "@type": "Answer", "text": "WebP es compatible con todos los navegadores modernos: Google Chrome, Firefox, Safari (desde la versión 14), Microsoft Edge, Opera y todos los navegadores móviles actuales." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuántas imágenes puedo convertir a la vez?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Puedes convertir hasta 10 imágenes simultáneamente en esta herramienta. La conversión es masiva y puedes descargar todas las imágenes convertidas en un archivo ZIP." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puedo controlar la calidad de la imagen WebP?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Tienes un control deslizante de calidad que va del 1% al 100%. El valor por defecto es 85%, que ofrece un buen equilibrio entre tamaño de archivo y calidad visual. A mayor calidad, mayor tamaño de archivo." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Por qué debería usar WebP en mi web?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Usar imágenes WebP en tu sitio web reduce significativamente el tiempo de carga, mejora tu puntuación en Google PageSpeed Insights y puede influir positivamente en tu posicionamiento SEO, ya que la velocidad de carga es un factor de ranking para Google." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <!-- ================================================
        GOOGLE ADSENSE — reemplaza ca-pub-XXXXXXXXXXXXXXXX
        ================================================ -->
@@ -294,15 +347,6 @@
     }
     #toast.show { transform: translateX(-50%) translateY(0); }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ08929722"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-BJ08929722');
-  </script>
 </head>
 <body>
 
@@ -384,11 +428,64 @@
     </div>
   </div>
 
-  <section style="margin-bottom:40px;">
-    <h2 style="font-size:1.3rem;margin-bottom:12px;">Why convert JPG to WebP?</h2>
-    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;">
-      WebP is Google's image format designed specifically for the web. It delivers superior compression — both lossy and lossless — meaning sharper images at smaller file sizes. This translates to faster websites, better Google PageSpeed scores, and lower bandwidth costs. Converting your JPG and PNG images to WebP is one of the simplest, highest-impact optimizations you can make. Our free JPG to WebP converter runs entirely in your browser — nothing is uploaded to any server.
+  <section style="margin-bottom:48px;">
+    <h2 style="font-size:1.3rem;margin-bottom:12px;">¿Por qué convertir JPG y PNG a WebP?</h2>
+    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;margin-bottom:12px;">
+      WebP es el formato de imagen de Google diseñado para la web. Ofrece compresión superior tanto con pérdida como sin ella, lo que significa imágenes más nítidas con archivos más pequeños. Convertir tus imágenes JPG, JPEG y PNG a WebP es una de las optimizaciones más sencillas y de mayor impacto que puedes hacer en cualquier sitio web.
     </p>
+    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;">
+      Las imágenes WebP pesan entre un 25% y un 80% menos que sus equivalentes en JPG o PNG. Esto se traduce en páginas web más rápidas, mejor puntuación en Google PageSpeed Insights, menor consumo de datos móviles y mejor posicionamiento SEO. Nuestro convertidor funciona 100% en tu navegador — ningún archivo se sube a ningún servidor.
+    </p>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="margin-bottom:48px;">
+    <h2 style="font-size:1.3rem;margin-bottom:24px;">Preguntas frecuentes</h2>
+    <div style="display:flex;flex-direction:column;gap:0;">
+
+      <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Qué es el formato WebP? <span style="color:var(--primary);font-size:1.2rem;">+</span>
+        </summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">WebP es un formato de imagen moderno desarrollado por Google que ofrece compresión superior a JPG y PNG, tanto con pérdida como sin ella. Las imágenes WebP pesan entre un 25% y un 80% menos que sus equivalentes en JPG o PNG con calidad visual similar.</p>
+      </details>
+
+      <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Es seguro convertir mis imágenes aquí? <span style="color:var(--primary);font-size:1.2rem;">+</span>
+        </summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Sí, completamente. La conversión ocurre directamente en tu navegador usando la API Canvas. Tus imágenes nunca se suben a ningún servidor ni salen de tu dispositivo.</p>
+      </details>
+
+      <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Qué navegadores soportan WebP? <span style="color:var(--primary);font-size:1.2rem;">+</span>
+        </summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">WebP es compatible con todos los navegadores modernos: Google Chrome, Firefox, Safari (desde la versión 14), Microsoft Edge, Opera y todos los navegadores móviles actuales. Cubre más del 97% de los usuarios de internet.</p>
+      </details>
+
+      <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Cuántas imágenes puedo convertir a la vez? <span style="color:var(--primary);font-size:1.2rem;">+</span>
+        </summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Puedes convertir hasta 10 imágenes simultáneamente. Puedes descargar cada imagen individualmente o todas juntas en un archivo ZIP con un solo clic.</p>
+      </details>
+
+      <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Puedo controlar la calidad de la imagen WebP? <span style="color:var(--primary);font-size:1.2rem;">+</span>
+        </summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Sí. El control deslizante de calidad va del 1% al 100%. El valor por defecto es 85%, que ofrece un buen equilibrio entre tamaño de archivo y calidad visual. A mayor calidad, mayor tamaño de archivo.</p>
+      </details>
+
+      <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Por qué debería usar WebP en mi web? <span style="color:var(--primary);font-size:1.2rem;">+</span>
+        </summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Usar imágenes WebP reduce el tiempo de carga de tu web, mejora tu puntuación en Google PageSpeed Insights y puede influir positivamente en tu posicionamiento SEO, ya que la velocidad de carga es un factor de ranking para Google.</p>
+      </details>
+
+    </div>
   </section>
 </main>
 
