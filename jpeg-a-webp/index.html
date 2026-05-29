@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Convertir JPEG a WebP gratis y online | convertidorwebp.com</title>
+  <meta name="description" content="Convierte tus imágenes JPEG a WebP gratis y al instante. Sin registro, sin subir archivos. 100% en tu navegador."/>
+  <meta name="keywords" content="convertir jpeg a webp, jpeg a webp online, pasar jpeg a webp, jpeg webp gratis"/>
+  <meta property="og:title" content="Convertir JPEG a WebP gratis y online | convertidorwebp.com"/>
+  <meta property="og:description" content="Convierte tus imágenes JPEG a WebP gratis y al instante. Sin registro, sin subir archivos. 100% en tu navegador."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.convertidorwebp.com/jpeg-a-webp/"/>
+  <link rel="canonical" href="https://www.convertidorwebp.com/jpeg-a-webp/"/>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ08929722"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ08929722');</script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"SoftwareApplication","name":"Convertir JPEG a WebP gratis","url":"https://www.convertidorwebp.com/jpeg-a-webp/","applicationCategory":"MultimediaApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Convierte imágenes JPEG a formato WebP gratis y al instante sin subir archivos. 100% en tu navegador."},
+      {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuál es la diferencia entre JPG y JPEG?","acceptedAnswer":{"@type":"Answer","text":"Son exactamente el mismo formato. JPG es la abreviatura de JPEG (Joint Photographic Experts Group). La diferencia es solo la extensión del archivo."}},{"@type":"Question","name":"¿Pierdo calidad al convertir JPEG a WebP?","acceptedAnswer":{"@type":"Answer","text":"No de forma apreciable. Con calidad al 85%, la diferencia visual es prácticamente imperceptible pero el archivo pesa mucho menos."}},{"@type":"Question","name":"¿Se guardan mis imágenes JPEG en algún servidor?","acceptedAnswer":{"@type":"Answer","text":"No. La conversión es 100% local. Ningún archivo se envía a ningún servidor."}},{"@type":"Question","name":"¿Puedo convertir varios JPEG a la vez?","acceptedAnswer":{"@type":"Answer","text":"Sí, hasta 10 archivos JPEG simultáneamente con descarga en ZIP."}}]}
+    ]
+  }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#f8f9fb;--surface:#ffffff;--border:#e2e6ea;--primary:#4f46e5;--primary-hover:#4338ca;--text:#1e1e2e;--muted:#6b7280;--success:#16a34a;--radius:14px; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh; }
+    header { background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px; }
+    .logo { font-size:1.2rem;font-weight:700;color:var(--primary);text-decoration:none; }
+    .logo span { color:var(--text); }
+    nav { display:flex;gap:16px;flex-wrap:wrap; }
+    nav a { font-size:0.85rem;color:var(--muted);text-decoration:none; }
+    nav a:hover { color:var(--primary); }
+    .ad-banner { background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:12px;min-height:100px; }
+    .ad-placeholder { width:100%;max-width:728px;height:90px;border:2px dashed var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.8rem; }
+    main { max-width:900px;margin:0 auto;padding:40px 20px; }
+    h1 { font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;text-align:center;margin-bottom:10px; }
+    .subtitle { text-align:center;color:var(--muted);margin-bottom:36px;font-size:1rem; }
+    #dropzone { border:2.5px dashed var(--primary);border-radius:var(--radius);background:#eef2ff;padding:52px 24px;text-align:center;cursor:pointer;transition:background .2s,border-color .2s;position:relative; }
+    #dropzone.dragover { background:#e0e7ff;border-color:var(--primary-hover); }
+    #dropzone input[type="file"] { position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%; }
+    .drop-icon { font-size:2.8rem;margin-bottom:12px; }
+    .drop-label { font-size:1.1rem;font-weight:600;color:var(--primary);margin-bottom:6px; }
+    .drop-sub { color:var(--muted);font-size:0.9rem; }
+    .controls { display:flex;align-items:center;gap:16px;margin:28px 0 20px;flex-wrap:wrap; }
+    .controls label { font-weight:600;white-space:nowrap;font-size:0.95rem; }
+    #quality { flex:1;min-width:160px;accent-color:var(--primary); }
+    #qualityVal { font-weight:700;color:var(--primary);min-width:36px;text-align:right; }
+    .btn { padding:10px 24px;border-radius:8px;border:none;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background .2s,opacity .2s; }
+    .btn-primary { background:var(--primary);color:#fff; }
+    .btn-primary:hover { background:var(--primary-hover); }
+    .btn-primary:disabled { opacity:.4;cursor:not-allowed; }
+    .btn-ghost { background:transparent;color:var(--muted);border:1px solid var(--border); }
+    .btn-ghost:hover { background:var(--bg); }
+    #imageGrid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:28px; }
+    .card { background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column; }
+    .card-preview { width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--bg); }
+    .card-body { padding:12px;flex:1;display:flex;flex-direction:column;gap:6px; }
+    .card-name { font-size:0.8rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+    .card-meta { font-size:0.75rem;color:var(--muted); }
+    .card-status { font-size:0.75rem;font-weight:600;margin-top:auto; }
+    .card-status.pending { color:var(--muted); }
+    .card-status.converting { color:#d97706; }
+    .card-status.done { color:var(--success); }
+    .card-status.error { color:#dc2626; }
+    .card-remove { position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:24px;height:24px;font-size:0.8rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1; }
+    .card-preview-wrap { position:relative; }
+    .actions { display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px; }
+    .ad-mid { margin:32px 0;display:flex;justify-content:center; }
+    .ad-mid .ad-placeholder { max-width:336px;height:280px; }
+    .info-section { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin:48px 0 32px; }
+    .info-card { background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px; }
+    .info-card h3 { font-size:1rem;margin-bottom:8px; }
+    .info-card p { font-size:0.88rem;color:var(--muted);line-height:1.6; }
+    footer { text-align:center;padding:24px;font-size:0.8rem;color:var(--muted);border-top:1px solid var(--border); }
+    #toast { position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--text);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.9rem;font-weight:500;transition:transform .3s ease;z-index:999;pointer-events:none; }
+    #toast.show { transform:translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/">convertidor<span>webp</span>.com</a>
+  <nav><a href="/">Inicio</a><a href="/jpg-a-webp/">JPG a WebP</a><a href="/png-a-webp/">PNG a WebP</a><a href="/en/">English</a></nav>
+</header>
+<div class="ad-banner"><div class="ad-placeholder">Anuncio 728×90</div></div>
+<main>
+  <h1>Convertir JPEG a WebP — Gratis y Online</h1>
+  <p class="subtitle">Convierte tus archivos JPEG a WebP en segundos. Sin registro, sin subida de archivos, 100% en tu navegador.</p>
+
+  <div id="dropzone">
+    <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,image/jpeg,image/png" multiple />
+    <div class="drop-icon">🖼️</div>
+    <div class="drop-label">Arrastra tus imágenes JPEG aquí</div>
+    <div class="drop-sub">o haz clic para seleccionarlas · Máximo 10 imágenes JPEG</div>
+  </div>
+  <div class="controls">
+    <label for="quality">Calidad WebP:</label>
+    <input type="range" id="quality" min="1" max="100" value="85" />
+    <span id="qualityVal">85%</span>
+    <button class="btn btn-primary" id="convertBtn" disabled>⚡ Convertir JPEG a WebP</button>
+    <button class="btn btn-ghost" id="clearBtn" style="display:none">✕ Limpiar</button>
+  </div>
+  <div id="imageGrid"></div>
+  <div class="actions" id="actionsRow" style="display:none">
+    <button class="btn btn-primary" id="downloadAllBtn">⬇️ Descargar todas (.zip)</button>
+  </div>
+  <div class="ad-mid"><div class="ad-placeholder">Anuncio 336×280</div></div>
+  <div class="info-section"><div class="info-card"><h3>🔒 100% privado</h3><p>Tus JPEG nunca salen de tu dispositivo. La conversión ocurre en tu navegador sin enviar nada a ningún servidor.</p></div><div class="info-card"><h3>📉 Archivos más ligeros</h3><p>WebP supera a JPEG en compresión: misma calidad visual, menor tamaño de archivo.</p></div><div class="info-card"><h3>⚡ Instantáneo</h3><p>Sin colas, sin esperas. La conversión de JPEG a WebP ocurre al instante.</p></div><div class="info-card"><h3>📦 Descarga en ZIP</h3><p>Convierte hasta 10 JPEG a la vez y descárgalos todos en un solo ZIP.</p></div></div>
+  <section style="margin-bottom:48px;">
+    <h2 style="font-size:1.3rem;margin-bottom:12px;">¿Por qué convertir JPEG a WebP?</h2>
+    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;margin-bottom:12px;">JPEG y JPG son el mismo formato (JPEG es la extensión completa). WebP supera a JPEG en compresión: con el mismo nivel de calidad visual, un archivo WebP pesa entre un 25% y un 50% menos que su equivalente JPEG. Para sitios web con muchas fotografías, esta reducción tiene un impacto directo en el tiempo de carga.</p>
+    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;">Google recomienda usar WebP como formato principal para imágenes en la web. Los navegadores modernos lo soportan al 97%, y convertir tus JPEG a WebP es una de las acciones más efectivas para mejorar el rendimiento de tu sitio y tu puntuación en Core Web Vitals.</p>
+  </section>
+  <section style="margin-bottom:48px;">
+    <h2 style="font-size:1.3rem;margin-bottom:24px;">Preguntas frecuentes</h2>
+    <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Cuál es la diferencia entre JPG y JPEG? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Son exactamente el mismo formato. JPG es la abreviatura de JPEG (Joint Photographic Experts Group). La diferencia es solo la extensión del archivo.</p>
+      </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Pierdo calidad al convertir JPEG a WebP? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">No de forma apreciable. Con calidad al 85%, la diferencia visual es prácticamente imperceptible pero el archivo pesa mucho menos.</p>
+      </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Se guardan mis imágenes JPEG en algún servidor? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">No. La conversión es 100% local. Ningún archivo se envía a ningún servidor.</p>
+      </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Puedo convertir varios JPEG a la vez? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Sí, hasta 10 archivos JPEG simultáneamente con descarga en ZIP.</p>
+      </details>
+  </section>
+</main>
+<footer><p>© 2026 convertidorwebp.com · Convertir JPEG a WebP gratis · Made with ❤️</p></footer>
+<div id="toast"></div>
+<script>
+  const MAX_FILES=10,fileInput=document.getElementById('fileInput'),dropzone=document.getElementById('dropzone'),imageGrid=document.getElementById('imageGrid'),convertBtn=document.getElementById('convertBtn'),clearBtn=document.getElementById('clearBtn'),actionsRow=document.getElementById('actionsRow'),downloadAllBtn=document.getElementById('downloadAllBtn'),qualitySlider=document.getElementById('quality'),qualityVal=document.getElementById('qualityVal'),toast=document.getElementById('toast');
+  let files=[],toastTimer;
+  function showToast(m,d=3000){toast.textContent=m;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),d);}
+  qualitySlider.addEventListener('input',()=>{qualityVal.textContent=qualitySlider.value+'%';});
+  dropzone.addEventListener('dragover',e=>{e.preventDefault();dropzone.classList.add('dragover');});
+  dropzone.addEventListener('dragleave',()=>dropzone.classList.remove('dragover'));
+  dropzone.addEventListener('drop',e=>{e.preventDefault();dropzone.classList.remove('dragover');handleFiles(Array.from(e.dataTransfer.files));});
+  fileInput.addEventListener('change',()=>{handleFiles(Array.from(fileInput.files));fileInput.value='';});
+  function handleFiles(incoming){const allowed=['image/jpeg','image/png'],valid=incoming.filter(f=>allowed.includes(f.type));if(valid.length<incoming.length)showToast('Solo se aceptan JPG, JPEG y PNG.');const slots=MAX_FILES-files.length;if(slots<=0){showToast('Límite de '+MAX_FILES+' imágenes alcanzado.');return;}const toAdd=valid.slice(0,slots);if(valid.length>slots)showToast('Solo se añadieron '+slots+' imagen(es).');toAdd.forEach(file=>{const entry={file,previewUrl:URL.createObjectURL(file),webpBlob:null,status:'pending',id:Date.now()+Math.random()};files.push(entry);renderCard(entry);});updateUI();}
+  function renderCard(entry){const card=document.createElement('div');card.className='card';card.dataset.id=entry.id;const sizeMB=(entry.file.size/1024).toFixed(1);card.innerHTML=`<div class="card-preview-wrap"><img class="card-preview" src="${entry.previewUrl}" alt="${entry.file.name}"/><button class="card-remove" title="Eliminar">✕</button></div><div class="card-body"><div class="card-name" title="${entry.file.name}">${entry.file.name}</div><div class="card-meta">${sizeMB} KB · ${entry.file.type.split('/')[1].toUpperCase()}</div><div class="card-status pending">Pendiente</div></div>`;card.querySelector('.card-remove').addEventListener('click',()=>removeFile(entry.id));imageGrid.appendChild(card);}
+  function removeFile(id){files=files.filter(f=>f.id!==id);const card=imageGrid.querySelector('[data-id="'+id+'"]');if(card)card.remove();updateUI();}
+  function updateUI(){const has=files.length>0;convertBtn.disabled=!has;clearBtn.style.display=has?'':'none';const allDone=files.length>0&&files.every(f=>f.status==='done');actionsRow.style.display=allDone?'':'none';}
+  convertBtn.addEventListener('click',async()=>{const quality=parseInt(qualitySlider.value)/100;convertBtn.disabled=true;for(const entry of files){if(entry.status==='done')continue;setStatus(entry.id,'converting','⏳ Convirtiendo...');try{entry.webpBlob=await convertToWebP(entry.file,quality);const newSizeKB=(entry.webpBlob.size/1024).toFixed(1);entry.status='done';setStatus(entry.id,'done','✅ Listo · '+newSizeKB+' KB');addDownloadBtn(entry);}catch(e){entry.status='error';setStatus(entry.id,'error','❌ Error al convertir');}}convertBtn.disabled=false;updateUI();});
+  function setStatus(id,cls,text){const card=imageGrid.querySelector('[data-id="'+id+'"] .card-status');if(!card)return;card.className='card-status '+cls;card.textContent=text;}
+  function addDownloadBtn(entry){const card=imageGrid.querySelector('[data-id="'+entry.id+'"] .card-body');if(!card||card.querySelector('.btn-dl'))return;const btn=document.createElement('a');btn.className='btn btn-ghost btn-dl';btn.style.cssText='font-size:0.8rem;padding:6px 12px;margin-top:4px;text-decoration:none;text-align:center;border-radius:6px;border:1px solid var(--border);color:var(--text);cursor:pointer;display:block;';btn.textContent='⬇️ Descargar';btn.href=URL.createObjectURL(entry.webpBlob);btn.download=entry.file.name.replace(/\.(jpe?g|png)$/i,'')+'.webp';card.appendChild(btn);}
+  function convertToWebP(file,quality){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0);canvas.toBlob(blob=>{if(blob)resolve(blob);else reject(new Error('toBlob failed'));},'image/webp',quality);};img.onerror=reject;img.src=URL.createObjectURL(file);});}
+  downloadAllBtn.addEventListener('click',async()=>{const zip=new JSZip();files.forEach(entry=>{if(entry.webpBlob){const name=entry.file.name.replace(/\.(jpe?g|png)$/i,'')+'.webp';zip.file(name,entry.webpBlob);}});const blob=await zip.generateAsync({type:'blob'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='imagenes-webp.zip';a.click();});
+  clearBtn.addEventListener('click',()=>{files=[];imageGrid.innerHTML='';actionsRow.style.display='none';updateUI();});
+</script>
+</body>
+</html>
