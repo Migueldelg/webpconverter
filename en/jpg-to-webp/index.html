@@ -14,10 +14,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
   <link rel="preconnect" href="https://www.googletagmanager.com"/>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ08929722"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ08929722');</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"JPG to WebP Converter","url":"https://www.convertidorwebp.com/en/jpg-to-webp/","applicationCategory":"MultimediaApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Convert JPG to WebP free, no upload, 100% in browser."},{"@type":"{"@type":"Question","name":"Do I lose quality converting JPG to WebP?","acceptedAnswer":{"@type":"Answer","text":"Not noticeably. At 85% quality (the default), the visual difference between a JPG and its WebP version is practically imperceptible, but the file is significantly smaller."}},{"@type":"Question","name":"Can I convert multiple JPGs at once?","acceptedAnswer":{"@type":"Answer","text":"Yes, up to 10 JPG files simultaneously, with ZIP download."}},{"@type":"Question","name":"Are my JPG images stored on any server?","acceptedAnswer":{"@type":"Answer","text":"No. Conversion is 100% local in your browser. No file is sent anywhere."}}Page","mainEntity":[{"@type":"Question","name":"Do I lose quality converting JPG to WebP?","acceptedAnswer":{"@type":"Answer","text":"Not noticeably. At 85% quality (the default), the visual difference between a JPG and its WebP version is practically imperceptible, but the file is significantly smaller."}},{"@type":"Question","name":"Can I convert multiple JPGs at once?","acceptedAnswer":{"@type":"Answer","text":"Yes, up to 10 JPG files simultaneously, with ZIP download."}},{"@type":"Question","name":"Are my JPG images stored on any server?","acceptedAnswer":{"@type":"Answer","text":"No. Conversion is 100% local in your browser. No file is sent anywhere."}}]}]}</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg:#f8f9fb;--surface:#ffffff;--border:#e2e6ea;--primary:#4f46e5;--primary-hover:#4338ca;--text:#1e1e2e;--muted:#6b7280;--success:#16a34a;--radius:14px; }
@@ -70,6 +67,16 @@
     #toast { position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--text);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.9rem;font-weight:500;transition:transform .3s ease;z-index:999;pointer-events:none; }
     #toast.show { transform:translateX(-50%) translateY(0); }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ08929722"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BJ08929722');
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
 </head>
 <body>
 <header>
