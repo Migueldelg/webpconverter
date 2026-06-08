@@ -1,0 +1,31 @@
+name: Informe semanal de conversiones
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'   # Cada lunes a las 8:00 UTC (9:00 España)
+  workflow_dispatch:        # Permite ejecutarlo manualmente desde GitHub
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: pip install google-auth google-api-python-client
+
+      - name: Ejecutar informe y enviar email
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GA4_CREDENTIALS: ${{ secrets.GA4_CREDENTIALS }}
+          EMAIL_TO:        ${{ secrets.EMAIL_TO }}
+          SMTP_USER:       ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD:   ${{ secrets.SMTP_PASSWORD }}
+        run: python scripts/weekly_report.py

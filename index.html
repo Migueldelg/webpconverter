@@ -642,6 +642,8 @@
 
     convertBtn.disabled = false;
     updateUI();
+    const converted = files.filter(f => f.status === 'done').length;
+    if (converted > 0) gtag('event', 'image_convert', { image_count: converted, page_name: 'es_home' });
   });
 
   function setStatus(id, cls, text) {
