@@ -22,8 +22,6 @@
     header { background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px; }
     .logo { font-size:1.2rem;font-weight:700;color:var(--primary);text-decoration:none; }
     .logo span { color:var(--text); }
-    .ad-banner { background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:12px;min-height:100px; }
-    .ad-placeholder { width:100%;max-width:728px;height:90px;border:2px dashed var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.8rem; }
     main { max-width:900px;margin:0 auto;padding:40px 20px; }
     h1 { font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;text-align:center;margin-bottom:10px; }
     .subtitle { text-align:center;color:var(--muted);margin-bottom:36px;font-size:1rem; }
@@ -57,8 +55,6 @@
     .card-remove { position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:24px;height:24px;font-size:0.8rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1; }
     .card-preview-wrap { position:relative; }
     .actions { display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px; }
-    .ad-mid { margin:32px 0;display:flex;justify-content:center; }
-    .ad-mid .ad-placeholder { max-width:336px;height:280px; }
     .info-section { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin:48px 0 32px; }
     .info-card { background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px; }
     .info-card h3 { font-size:1rem;margin-bottom:8px; }
@@ -86,7 +82,6 @@
   <a class="logo" href="/">convertidor<span>webp</span>.com</a>
   <a href="/jpeg-a-webp/" style="font-size:0.82rem;color:var(--muted);text-decoration:none;">🌐 ES</a>
 </header>
-<div class="ad-banner"><div class="ad-placeholder">Anuncio 728×90</div></div>
 <main>
   <h1>JPEG to WebP Converter — Free &amp; Instant</h1>
   <p class="subtitle">Convert your JPEG files to WebP in seconds. Free, no upload, 100% in your browser.</p>
@@ -116,7 +111,6 @@
   <div class="actions" id="actionsRow" style="display:none">
     <button class="btn btn-primary" id="downloadAllBtn">⬇️ Download all (.zip)</button>
   </div>
-  <div class="ad-mid"><div class="ad-placeholder">Anuncio 336×280</div></div>
   <div class="info-section"><div class="info-card"><h3>🔒 100% Private</h3><p>Your JPEG files never leave your device. Conversion happens in your browser.</p></div><div class="info-card"><h3>📉 Smaller Files</h3><p>WebP outperforms JPEG in compression: same visual quality, smaller file size.</p></div><div class="info-card"><h3>⚡ Instant</h3><p>No queues. JPEG to WebP conversion happens instantly.</p></div><div class="info-card"><h3>📦 Batch Download</h3><p>Convert up to 10 JPEGs at once and download them all in a ZIP.</p></div></div>
   <section style="margin-bottom:48px;">
     <h2 style="font-size:1.3rem;margin-bottom:12px;">Why convert JPEG to WebP?</h2>
