@@ -17,15 +17,11 @@ const ADSENSE_CLIENT = 'ca-pub-7213402290601307';
 const LOADER_SNIPPET =
   '  <!-- GOOGLE ADSENSE -->\n' +
   `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>\n`;
-const AUTO_ADS_MARKER = 'enable_page_level_ads';
-const AUTO_ADS_SNIPPET =
-  '  <!-- GOOGLE ADSENSE - AUTO ADS -->\n' +
-  '  <script>\n' +
-  '    (adsbygoogle = window.adsbygoogle || []).push({\n' +
-  `      google_ad_client: "${ADSENSE_CLIENT}",\n` +
-  '      enable_page_level_ads: true\n' +
-  '    });\n' +
-  '  </script>\n';
+// NOTA: Auto Ads está activado desde el panel de AdSense (Anuncios > Por
+// sitio). NO añadir aquí un push({ enable_page_level_ads: true }) manual:
+// el propio script loader ya activa Auto Ads cuando está confirmado en el
+// panel, y el push manual duplicado causa el error en consola
+// "Only one 'enable_page_level_ads' allowed per page" que bloquea los anuncios.
 
 const ROOT = path.resolve(__dirname, '..');
 const IGNORE_DIRS = new Set(['node_modules', '.git', '.github', '.idea', 'scripts', '.vercel']);
@@ -56,13 +52,16 @@ for (const file of findHtmlFiles(ROOT)) {
 
   let changed = false;
 
-  if (!html.includes(ADSENSE_CLIENT)) {
-    html = html.replace('</head>', `${LOADER_SNIPPET}</head>`);
+  // Quita cualquier push manual de enable_page_level_ads que haya quedado
+  // de una versión anterior del script (duplica la Auto Ads del panel).
+  const pushBlockRe = /\s*<!-- GOOGLE ADSENSE - AUTO ADS -->\s*\n\s*<script>\s*\n\s*\(adsbygoogle[\s\S]*?<\/script>\n?/;
+  if (pushBlockRe.test(html)) {
+    html = html.replace(pushBlockRe, '\n');
     changed = true;
   }
 
-  if (!html.includes(AUTO_ADS_MARKER)) {
-    html = html.replace('</head>', `${AUTO_ADS_SNIPPET}</head>`);
+  if (!html.includes(ADSENSE_CLIENT)) {
+    html = html.replace('</head>', `${LOADER_SNIPPET}</head>`);
     changed = true;
   }
 
