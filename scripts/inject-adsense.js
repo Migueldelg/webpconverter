@@ -14,9 +14,18 @@ const fs = require('fs');
 const path = require('path');
 
 const ADSENSE_CLIENT = 'ca-pub-7213402290601307';
-const SNIPPET =
+const LOADER_SNIPPET =
   '  <!-- GOOGLE ADSENSE -->\n' +
   `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>\n`;
+const AUTO_ADS_MARKER = 'enable_page_level_ads';
+const AUTO_ADS_SNIPPET =
+  '  <!-- GOOGLE ADSENSE - AUTO ADS -->\n' +
+  '  <script>\n' +
+  '    (adsbygoogle = window.adsbygoogle || []).push({\n' +
+  `      google_ad_client: "${ADSENSE_CLIENT}",\n` +
+  '      enable_page_level_ads: true\n' +
+  '    });\n' +
+  '  </script>\n';
 
 const ROOT = path.resolve(__dirname, '..');
 const IGNORE_DIRS = new Set(['node_modules', '.git', '.github', '.idea', 'scripts', '.vercel']);
@@ -38,22 +47,32 @@ let updated = 0;
 let skipped = 0;
 
 for (const file of findHtmlFiles(ROOT)) {
-  const html = fs.readFileSync(file, 'utf8');
-
-  if (html.includes(ADSENSE_CLIENT)) {
-    skipped++;
-    continue;
-  }
+  let html = fs.readFileSync(file, 'utf8');
 
   if (!html.includes('</head>')) {
     console.warn(`AVISO: ${file} no tiene </head>, se omite`);
     continue;
   }
 
-  const newHtml = html.replace('</head>', `${SNIPPET}</head>`);
-  fs.writeFileSync(file, newHtml, 'utf8');
-  updated++;
-  console.log(`AdSense anadido en ${path.relative(ROOT, file)}`);
+  let changed = false;
+
+  if (!html.includes(ADSENSE_CLIENT)) {
+    html = html.replace('</head>', `${LOADER_SNIPPET}</head>`);
+    changed = true;
+  }
+
+  if (!html.includes(AUTO_ADS_MARKER)) {
+    html = html.replace('</head>', `${AUTO_ADS_SNIPPET}</head>`);
+    changed = true;
+  }
+
+  if (changed) {
+    fs.writeFileSync(file, html, 'utf8');
+    updated++;
+    console.log(`AdSense actualizado en ${path.relative(ROOT, file)}`);
+  } else {
+    skipped++;
+  }
 }
 
 console.log(`\nHecho: ${updated} pagina(s) actualizada(s), ${skipped} ya lo tenian.`);
