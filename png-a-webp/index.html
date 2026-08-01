@@ -128,6 +128,18 @@
     <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;">Si tu web usa muchos PNG, convertirlos a WebP puede reducir drásticamente el tiempo de carga. Un logo PNG de 200 KB puede convertirse en un WebP de 40 KB con idéntica apariencia visual y con soporte completo de transparencia en todos los navegadores modernos.</p>
   </section>
   <section style="margin-bottom:48px;">
+    <h2 style="font-size:1.3rem;margin-bottom:16px;">Cómo convertir un PNG a WebP</h2>
+    <ol style="color:var(--muted);line-height:1.8;font-size:0.95rem;padding-left:22px;">
+      <li><strong>Sube tus archivos PNG</strong> arrastrándolos a la zona de subida o seleccionándolos desde tu equipo (hasta 10 a la vez).</li>
+      <li><strong>Elige el nivel de calidad</strong> — para logos e iconos con bordes definidos, prueba con valores altos (90-100%) para mantener la nitidez.</li>
+      <li><strong>Pulsa "Convertir PNG a WebP"</strong>: la transparencia (canal alfa) se conserva automáticamente.</li>
+      <li><strong>Descarga tus WebP</strong> individualmente o en un ZIP completo.</li>
+    </ol>
+    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;margin-top:16px;">
+      A diferencia de una fotografía, un PNG suele contener gráficos vectoriales rasterizados, iconos o capturas de pantalla con áreas de color plano y bordes muy definidos. En estos casos, valores de calidad WebP altos (90-100%) suelen ofrecer el mejor resultado, ya que evitan artefactos de compresión visibles en los bordes. Para fotografías con transparencia (menos habitual), un valor de 80-85% suele ser suficiente.
+    </p>
+  </section>
+  <section style="margin-bottom:48px;">
     <h2 style="font-size:1.3rem;margin-bottom:24px;">Preguntas frecuentes</h2>
     <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
         <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿WebP soporta transparencia como PNG? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
@@ -141,10 +153,16 @@
       </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
         <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Puedo convertir varios PNG a la vez? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
         <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Sí, hasta 10 archivos PNG simultáneamente con descarga en ZIP.</p>
+      </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Qué calidad debo usar para logos e iconos? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Para gráficos con bordes definidos como logos o iconos, recomendamos una calidad alta (90-100%) para evitar artefactos de compresión visibles en los contornos.</p>
+      </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Funciona con capturas de pantalla? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Sí. Las capturas de pantalla en PNG suelen contener áreas de color plano y texto, por lo que convertirlas a WebP con calidad alta reduce su peso considerablemente sin pérdida de legibilidad.</p>
       </details>
   </section>
 </main>
-<footer><p>© 2026 convertidorwebp.com · Convertir PNG a WebP gratis · Made with ❤️</p></footer>
+<footer><p>© 2026 convertidorwebp.com · Convertir PNG a WebP gratis · Made with ❤️ · <a href="/aviso-legal/" style="color:var(--muted);">Aviso legal</a> · <a href="/politica-privacidad/" style="color:var(--muted);">Privacidad</a></p></footer>
 <div id="toast"></div>
 <script>
   const MAX_FILES=10,fileInput=document.getElementById('fileInput'),dropzone=document.getElementById('dropzone'),imageGrid=document.getElementById('imageGrid'),convertBtn=document.getElementById('convertBtn'),clearBtn=document.getElementById('clearBtn'),actionsRow=document.getElementById('actionsRow'),downloadAllBtn=document.getElementById('downloadAllBtn'),qualitySlider=document.getElementById('quality'),qualityVal=document.getElementById('qualityVal'),toast=document.getElementById('toast');

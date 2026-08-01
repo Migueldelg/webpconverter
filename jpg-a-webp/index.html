@@ -128,6 +128,18 @@
     <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;">Convertir JPG a WebP es especialmente importante para tiendas online, portfolios fotográficos y cualquier sitio con muchas imágenes. Google incluye la velocidad de carga como factor de posicionamiento, por lo que optimizar tus imágenes JPG a WebP puede mejorar directamente tu SEO.</p>
   </section>
   <section style="margin-bottom:48px;">
+    <h2 style="font-size:1.3rem;margin-bottom:16px;">Cómo convertir un JPG a WebP</h2>
+    <ol style="color:var(--muted);line-height:1.8;font-size:0.95rem;padding-left:22px;">
+      <li><strong>Arrastra tus archivos JPG</strong> a la zona de subida, o haz clic para seleccionarlos desde tu ordenador o móvil (hasta 10 a la vez).</li>
+      <li><strong>Elige la calidad WebP</strong> con el control deslizante — 85% es un buen punto de partida para fotografías.</li>
+      <li><strong>Pulsa "Convertir JPG a WebP"</strong> y espera unos milisegundos: todo ocurre en tu navegador, sin subir nada a internet.</li>
+      <li><strong>Descarga tus WebP</strong> uno a uno o todos juntos en un ZIP.</li>
+    </ol>
+    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;margin-top:16px;">
+      Ten en cuenta que un archivo JPG ya está comprimido con pérdida. Al convertirlo a WebP con calidad alta (85-95%) evitas una segunda pérdida de calidad notable, ya que el conversor parte de los píxeles decodificados de la imagen, no del archivo JPG comprimido original. Esto hace que la conversión sea segura incluso para fotografías de producto o retratos donde el detalle importa.
+    </p>
+  </section>
+  <section style="margin-bottom:48px;">
     <h2 style="font-size:1.3rem;margin-bottom:24px;">Preguntas frecuentes</h2>
     <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
         <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Pierdo calidad al convertir JPG a WebP? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
@@ -141,10 +153,16 @@
       </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
         <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Se guardan mis imágenes JPG en algún servidor? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
         <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">No. La conversión es 100% local en tu navegador. Ningún archivo JPG se envía a ningún servidor.</p>
+      </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Puedo convertir un JPG de varios megabytes? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Sí. El límite depende de la memoria de tu navegador, pero fotografías de varios megapíxeles (por ejemplo, de una cámara réflex o un móvil moderno) se procesan sin problema.</p>
+      </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">¿Se conservan los metadatos EXIF del JPG? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">El proceso de conversión mediante Canvas genera una imagen nueva a partir de los píxeles, por lo que los metadatos EXIF (fecha, cámara, geolocalización) del JPG original no se trasladan al WebP. Si necesitas conservarlos, guarda también el archivo JPG original.</p>
       </details>
   </section>
 </main>
-<footer><p>© 2026 convertidorwebp.com · Convertir JPG a WebP gratis · Made with ❤️</p></footer>
+<footer><p>© 2026 convertidorwebp.com · Convertir JPG a WebP gratis · Made with ❤️ · <a href="/aviso-legal/" style="color:var(--muted);">Aviso legal</a> · <a href="/politica-privacidad/" style="color:var(--muted);">Privacidad</a></p></footer>
 <div id="toast"></div>
 <script>
   const MAX_FILES=10,fileInput=document.getElementById('fileInput'),dropzone=document.getElementById('dropzone'),imageGrid=document.getElementById('imageGrid'),convertBtn=document.getElementById('convertBtn'),clearBtn=document.getElementById('clearBtn'),actionsRow=document.getElementById('actionsRow'),downloadAllBtn=document.getElementById('downloadAllBtn'),qualitySlider=document.getElementById('quality'),qualityVal=document.getElementById('qualityVal'),toast=document.getElementById('toast');

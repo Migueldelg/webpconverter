@@ -118,11 +118,38 @@
     <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;">If your website uses many PNGs, converting them to WebP can dramatically reduce load times. A 200KB PNG logo can become a 40KB WebP with identical appearance and full transparency support in all modern browsers.</p>
   </section>
   <section style="margin-bottom:48px;">
-    <h2 style="font-size:1.3rem;margin-bottom:24px;">{"@type":"Question","name":"Does WebP support transparency like PNG?","acceptedAnswer":{"@type":"Answer","text":"Yes. WebP includes alpha channel support, making it a direct replacement for PNG in logos, icons, and graphics with transparent backgrounds."}},{"@type":"Question","name":"How much smaller will my PNG get?","acceptedAnswer":{"@type":"Answer","text":"Typically 25–80% smaller. PNG files with many colors and details see the largest reductions."}},{"@type":"Question","name":"Are my PNG files stored on any server?","acceptedAnswer":{"@type":"Answer","text":"No. Conversion is 100% local in your browser."}}_HEADING</h2>
-    {"@type":"Question","name":"Does WebP support transparency like PNG?","acceptedAnswer":{"@type":"Answer","text":"Yes. WebP includes alpha channel support, making it a direct replacement for PNG in logos, icons, and graphics with transparent backgrounds."}},{"@type":"Question","name":"How much smaller will my PNG get?","acceptedAnswer":{"@type":"Answer","text":"Typically 25–80% smaller. PNG files with many colors and details see the largest reductions."}},{"@type":"Question","name":"Are my PNG files stored on any server?","acceptedAnswer":{"@type":"Answer","text":"No. Conversion is 100% local in your browser."}}_HTML
+    <h2 style="font-size:1.3rem;margin-bottom:16px;">How to convert a PNG to WebP</h2>
+    <ol style="color:var(--muted);line-height:1.8;font-size:0.95rem;padding-left:22px;">
+      <li><strong>Upload your PNG files</strong> by dragging them onto the upload area or selecting them from your device (up to 10 at once).</li>
+      <li><strong>Choose a quality level</strong> — for logos and icons with sharp edges, try a high value (90-100%) to keep them crisp.</li>
+      <li><strong>Click "Convert PNG to WebP"</strong>: transparency (alpha channel) is preserved automatically.</li>
+      <li><strong>Download your WebP files</strong> individually or as a full ZIP.</li>
+    </ol>
+    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;margin-top:16px;">
+      Unlike a photograph, a PNG usually contains rasterized vector graphics, icons, or screenshots with flat color areas and sharp edges. In these cases, high WebP quality settings (90-100%) tend to give the best result, since they avoid visible compression artifacts along edges. For photos with transparency (less common), 80-85% is usually enough.
+    </p>
+  </section>
+  <section style="margin-bottom:48px;">
+    <h2 style="font-size:1.3rem;margin-bottom:24px;">Frequently asked questions</h2>
+    <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+      <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">Does WebP support transparency like PNG? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+      <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Yes. WebP includes alpha channel support, making it a direct replacement for PNG in logos, icons, and graphics with transparent backgrounds.</p>
+    </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+      <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">How much smaller will my PNG get? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+      <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Typically 25–80% smaller. PNG files with many colors and details see the largest reductions.</p>
+    </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+      <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">Are my PNG files stored on any server? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+      <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">No. Conversion is 100% local in your browser. No file is sent anywhere.</p>
+    </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+      <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">What quality should I use for logos and icons? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+      <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">For graphics with sharp edges like logos or icons, we recommend a high quality setting (90-100%) to avoid visible compression artifacts along the edges.</p>
+    </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+      <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">Does this work with screenshots? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+      <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Yes. PNG screenshots usually contain flat color areas and text, so converting them to WebP at a high quality setting cuts their size considerably without hurting readability.</p>
+    </details>
   </section>
 </main>
-<footer><p>© 2026 convertidorwebp.com · PNG to WebP Converter · Made with ❤️</p></footer>
+<footer><p>© 2026 convertidorwebp.com · PNG to WebP Converter · Made with ❤️ · <a href="/en/legal-notice/" style="color:var(--muted);">Legal notice</a> · <a href="/en/privacy-policy/" style="color:var(--muted);">Privacy</a></p></footer>
 <div id="toast"></div>
 <script>
   const MAX_FILES=10,fileInput=document.getElementById('fileInput'),dropzone=document.getElementById('dropzone'),imageGrid=document.getElementById('imageGrid'),convertBtn=document.getElementById('convertBtn'),clearBtn=document.getElementById('clearBtn'),actionsRow=document.getElementById('actionsRow'),downloadAllBtn=document.getElementById('downloadAllBtn'),qualitySlider=document.getElementById('quality'),qualityVal=document.getElementById('qualityVal'),toast=document.getElementById('toast');

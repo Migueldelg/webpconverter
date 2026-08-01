@@ -127,8 +127,23 @@
     <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;margin-bottom:12px;">WebP is Google's image format built specifically for the web. It delivers superior compression — both lossy and lossless — meaning sharper images at smaller file sizes. This translates to faster websites, better Google PageSpeed scores, and lower bandwidth costs for your users.</p>
     <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;">WebP images are 25–80% smaller than their JPG or PNG equivalents with no visible quality loss. This makes converting to WebP one of the simplest, highest-impact optimizations you can make for any website. Our converter runs entirely in your browser — nothing is uploaded to any server, ever.</p>
   </section>
+
+  <!-- HOW-TO SECTION -->
   <section style="margin-bottom:48px;">
-    <h2 style="font-size:1.3rem;margin-bottom:24px;">Preguntas frecuentes</h2>
+    <h2 style="font-size:1.3rem;margin-bottom:16px;">How to convert your images to WebP in 4 steps</h2>
+    <ol style="color:var(--muted);line-height:1.8;font-size:0.95rem;padding-left:22px;">
+      <li><strong>Select your images:</strong> drag up to 10 JPG, JPEG or PNG files onto the upload area above, or click to choose them from your computer or phone.</li>
+      <li><strong>Adjust the quality:</strong> move the WebP quality slider. 85% is usually the sweet spot between file size and sharpness — lower it if you want smaller files, or raise it if you need maximum fidelity.</li>
+      <li><strong>Click "Convert to WebP":</strong> conversion happens instantly in your own browser via the HTML5 Canvas API, with no file ever uploaded to an external server.</li>
+      <li><strong>Download the result:</strong> grab each WebP image individually, or click "Download all" to get every conversion in a single ZIP file.</li>
+    </ol>
+    <p style="color:var(--muted);line-height:1.7;font-size:0.95rem;margin-top:16px;">
+      WebP supports two compression modes: lossy (similar to JPG, ideal for photographs) and lossless (similar to PNG, ideal for logos, screenshots, and illustrations with sharp edges). Our converter uses the adjustable lossy mode, which in practice offers the best balance for most web images: product photos on online stores, blog header images, article thumbnails, or attachments for email marketing campaigns.
+    </p>
+  </section>
+
+  <section style="margin-bottom:48px;">
+    <h2 style="font-size:1.3rem;margin-bottom:24px;">Frequently asked questions</h2>
     <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
         <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">What is WebP format? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
         <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">WebP is a modern image format developed by Google that offers superior compression to JPG and PNG. WebP images are 25–80% smaller than equivalent JPG/PNG files with similar visual quality.</p>
@@ -147,10 +162,16 @@
       </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
         <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">Why should I use WebP on my website? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
         <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">WebP reduces page load time, improves Google PageSpeed Insights scores, and can positively impact your SEO ranking, since page speed is a Google ranking factor.</p>
+      </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">Do I need to install anything or create an account? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">No. There's no app, extension, or account to create. The tool runs directly in your browser, on desktop or mobile, with no sign-up required.</p>
+      </details><details style="border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--surface);overflow:hidden;">
+        <summary style="padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">What happens to my original images? <span style="color:var(--primary);font-size:1.2rem;">+</span></summary>
+        <p style="padding:0 20px 18px;color:var(--muted);line-height:1.7;font-size:0.9rem;">Your original files are not modified or deleted from your device. The tool generates a new WebP file from the image you select, and you decide whether to download it, replace the original, or keep both.</p>
       </details>
   </section>
 </main>
-<footer><p>© 2026 convertidorwebp.com · Free JPG to WebP Converter · Made with ❤️</p></footer>
+<footer><p>© 2026 convertidorwebp.com · Free JPG to WebP Converter · Made with ❤️ · <a href="/en/legal-notice/" style="color:var(--muted);">Legal notice</a> · <a href="/en/privacy-policy/" style="color:var(--muted);">Privacy</a></p></footer>
 <div id="toast"></div>
 <script>
   const MAX_FILES=10,fileInput=document.getElementById('fileInput'),dropzone=document.getElementById('dropzone'),imageGrid=document.getElementById('imageGrid'),convertBtn=document.getElementById('convertBtn'),clearBtn=document.getElementById('clearBtn'),actionsRow=document.getElementById('actionsRow'),downloadAllBtn=document.getElementById('downloadAllBtn'),qualitySlider=document.getElementById('quality'),qualityVal=document.getElementById('qualityVal'),toast=document.getElementById('toast');
