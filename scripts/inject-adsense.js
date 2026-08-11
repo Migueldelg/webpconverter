@@ -23,6 +23,28 @@ const LOADER_SNIPPET =
 // panel, y el push manual duplicado causa el error en consola
 // "Only one 'enable_page_level_ads' allowed per page" que bloquea los anuncios.
 
+// Valores por defecto de Google Consent Mode v2: deniega cookies de
+// anuncios/analítica hasta que el usuario responda al mensaje de
+// consentimiento (Privacy & messaging / European regulations message en
+// AdSense). Debe cargarse ANTES que adsbygoogle.js y gtag.js, por eso se
+// inserta justo después de <head>. El propio CMP de Google llama a
+// gtag('consent','update', ...) automáticamente cuando el usuario decide —
+// no hace falta código adicional para eso.
+const CONSENT_MARKER = 'GOOGLE CONSENT MODE V2';
+const CONSENT_SNIPPET =
+  `  <!-- ${CONSENT_MARKER} -->\n` +
+  '  <script>\n' +
+  '    window.dataLayer = window.dataLayer || [];\n' +
+  '    function gtag(){dataLayer.push(arguments);}\n' +
+  "    gtag('consent', 'default', {\n" +
+  "      'ad_storage': 'denied',\n" +
+  "      'ad_user_data': 'denied',\n" +
+  "      'ad_personalization': 'denied',\n" +
+  "      'analytics_storage': 'denied',\n" +
+  "      'wait_for_update': 500\n" +
+  '    });\n' +
+  '  </script>\n';
+
 const ROOT = path.resolve(__dirname, '..');
 const IGNORE_DIRS = new Set(['node_modules', '.git', '.github', '.idea', 'scripts', '.vercel']);
 
@@ -57,6 +79,12 @@ for (const file of findHtmlFiles(ROOT)) {
   const pushBlockRe = /\s*<!-- GOOGLE ADSENSE - AUTO ADS -->\s*\n\s*<script>\s*\n\s*\(adsbygoogle[\s\S]*?<\/script>\n?/;
   if (pushBlockRe.test(html)) {
     html = html.replace(pushBlockRe, '\n');
+    changed = true;
+  }
+
+  // El snippet de Consent Mode va primero, justo después de <head>.
+  if (!html.includes(CONSENT_MARKER) && html.includes('<head>')) {
+    html = html.replace('<head>', `<head>\n${CONSENT_SNIPPET}`);
     changed = true;
   }
 
