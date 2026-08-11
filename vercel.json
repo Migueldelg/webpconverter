@@ -1,4 +1,18 @@
 {
   "buildCommand": "node scripts/inject-adsense.js",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "redirects": [
+    { "source": "/jpg-a-webp", "destination": "/", "permanent": true },
+    { "source": "/jpg-a-webp/", "destination": "/", "permanent": true },
+    { "source": "/png-a-webp", "destination": "/", "permanent": true },
+    { "source": "/png-a-webp/", "destination": "/", "permanent": true },
+    { "source": "/jpeg-a-webp", "destination": "/", "permanent": true },
+    { "source": "/jpeg-a-webp/", "destination": "/", "permanent": true },
+    { "source": "/en/jpg-to-webp", "destination": "/en/", "permanent": true },
+    { "source": "/en/jpg-to-webp/", "destination": "/en/", "permanent": true },
+    { "source": "/en/png-to-webp", "destination": "/en/", "permanent": true },
+    { "source": "/en/png-to-webp/", "destination": "/en/", "permanent": true },
+    { "source": "/en/jpeg-to-webp", "destination": "/en/", "permanent": true },
+    { "source": "/en/jpeg-to-webp/", "destination": "/en/", "permanent": true }
+  ]
 }
