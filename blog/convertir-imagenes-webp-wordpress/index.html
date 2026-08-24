@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- GOOGLE CONSENT MODE V2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convertir imágenes a WebP en WordPress: 3 métodos | convertidorwebp.com</title>
+  <meta name="description" content="Tres formas de usar WebP en WordPress: convertir antes de subir, usar un plugin de optimización, o activar la conversión automática desde la versión 5.8." />
+  <meta name="keywords" content="webp wordpress, convertir imágenes wordpress, plugin webp wordpress, wordpress imágenes ligeras" />
+  <meta property="og:title" content="Cómo convertir imágenes a WebP en WordPress: 3 métodos (con y sin plugins)" />
+  <meta property="og:description" content="Tres formas de usar WebP en WordPress: convertir antes de subir, usar un plugin de optimización, o activar la conversión automática desde la versión 5.8." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.convertidorwebp.com/blog/convertir-imagenes-webp-wordpress/" />
+  <link rel="canonical" href="https://www.convertidorwebp.com/blog/convertir-imagenes-webp-wordpress/" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cómo convertir imágenes a WebP en WordPress: 3 métodos (con y sin plugins)",
+    "description": "Tres formas de usar WebP en WordPress: convertir antes de subir, usar un plugin de optimización, o activar la conversión automática desde la versión 5.8.",
+    "datePublished": "2026-08-24",
+    "dateModified": "2026-08-24",
+    "author": { "@type": "Organization", "name": "convertidorwebp.com" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "convertidorwebp.com",
+      "logo": { "@type": "ImageObject", "url": "https://www.convertidorwebp.com/favicon.ico" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.convertidorwebp.com/blog/convertir-imagenes-webp-wordpress/" }
+  }
+  </script>
+  <!-- GOOGLE ADSENSE -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7213402290601307" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8f9fb; --surface: #ffffff; --border: #e2e6ea;
+      --primary: #4f46e5; --primary-hover: #4338ca;
+      --text: #1e1e2e; --muted: #6b7280; --success: #16a34a; --radius: 14px;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh;
+    }
+    header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+    .logo span { color: var(--text); }
+    nav.subnav { font-size: 0.82rem; }
+    nav.subnav a { color: var(--muted); text-decoration: none; margin-left: 16px; }
+    nav.subnav a:hover { color: var(--primary); }
+    main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+    main.wide { max-width: 980px; }
+    h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; margin-bottom: 10px; line-height: 1.25; }
+    .subtitle { color: var(--muted); margin-bottom: 28px; font-size: 1rem; }
+    .meta-row { color: var(--muted); font-size: 0.85rem; margin-bottom: 32px; display:flex; gap:12px; flex-wrap:wrap; }
+    article h2 { font-size: 1.25rem; font-weight: 700; margin: 32px 0 12px; }
+    article p { color: var(--text); line-height: 1.75; font-size: 0.98rem; margin-bottom: 14px; }
+    article ul, article ol { color: var(--text); line-height: 1.75; font-size: 0.98rem; padding-left: 22px; margin-bottom: 14px; }
+    article li { margin-bottom: 6px; }
+    article a { color: var(--primary); }
+    article code { background:#eef2ff; padding:2px 6px; border-radius:4px; font-size:0.88em; }
+    .cta-box {
+      background: #eef2ff; border: 1px solid #c7d2fe; border-radius: var(--radius);
+      padding: 24px; margin: 40px 0; text-align: center;
+    }
+    .cta-box p { color: var(--text); margin-bottom: 14px; }
+    .btn { display:inline-block; padding: 10px 24px; border-radius: 8px; border: none; font-size: 0.95rem;
+      font-weight: 600; cursor: pointer; background: var(--primary); color: #fff; text-decoration:none; }
+    .btn:hover { background: var(--primary-hover); }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin: 8px 0 40px; }
+    .blog-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; display: flex; flex-direction: column; text-decoration: none; color: var(--text);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .blog-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .blog-card h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--text); line-height: 1.4; }
+    .blog-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; flex: 1; }
+    .blog-card .read-more { color: var(--primary); font-size: 0.85rem; font-weight: 600; margin-top: 14px; }
+    footer { text-align: center; padding: 24px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 20px; }
+    .back-link { display:inline-block; margin-bottom: 20px; color: var(--muted); text-decoration:none; font-size: 0.88rem; }
+    .back-link:hover { color: var(--primary); }
+</style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H0KK1JYQKK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H0KK1JYQKK');
+  </script>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="/">convertidor<span>webp</span>.com</a>
+  <nav class="subnav">
+    <a href="/">Convertidor</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+
+<main>
+  <a class="back-link" href="/blog/">&larr; Volver al blog</a>
+  <article>
+    <h1>Cómo convertir imágenes a WebP en WordPress: 3 métodos (con y sin plugins)</h1>
+    <div class="meta-row"><span>Publicado el 24 de agosto de 2026</span><span>&middot;</span><span>4 min de lectura</span></div>
+
+<p>WordPress permite trabajar con WebP desde hace varias versiones, pero no siempre de la forma más eficiente por defecto. Aquí tienes tres métodos, de más simple a más automatizado, para que las imágenes de tu WordPress se sirvan en WebP.</p>
+
+<h2>Método 1: convertir antes de subir (recomendado para la mayoría)</h2>
+<p>La forma más sencilla y con más control es convertir tus imágenes a WebP antes de subirlas a la biblioteca de medios de WordPress:</p>
+<ol>
+  <li>Arrastra tus imágenes JPG, JPEG o PNG a <a href="/">nuestro convertidor</a> (hasta 10 a la vez).</li>
+  <li>Ajusta la calidad con el control deslizante —85% es un buen punto de partida para fotografías.</li>
+  <li>Descarga los archivos WebP (individualmente o en un ZIP).</li>
+  <li>Súbelos a la biblioteca de medios de WordPress como harías con cualquier otra imagen.</li>
+</ol>
+<p>Ventajas: no depende de ningún plugin, no añade peso ni consultas extra a tu servidor, y tú controlas exactamente la calidad de cada imagen. El único paso manual es la conversión, que con un conversor por lotes lleva segundos.</p>
+
+<h2>Método 2: un plugin de optimización de imágenes</h2>
+<p>Si prefieres automatizar la conversión de imágenes que subes directamente en formato JPG o PNG, existen plugins especializados (ShortPixel, Imagify, EWWW Image Optimizer, entre otros) que convierten automáticamente cada imagen subida a WebP y, en algunos casos, sirven la versión WebP solo a los navegadores compatibles. La mayoría funcionan con un plan gratuito limitado a un número de imágenes al mes y planes de pago para volúmenes mayores.</p>
+<p>Ventajas: automatización total, sin pasos manuales. Inconvenientes: dependencia de un plugin de terceros (mantenimiento, posibles costes, otro punto de fallo), y menos control fino sobre la calidad de cada imagen individual.</p>
+
+<h2>Método 3: conversión automática nativa de WordPress</h2>
+<p>Desde la versión 5.8, WordPress puede generar automáticamente una versión WebP de las imágenes JPEG que subes, usando el filtro <code>wp_image_editor_output_format</code>. Requiere que el servidor tenga soporte de WebP en las librerías GD o Imagick (la mayoría de hostings modernos lo tienen). Para activarlo hay que añadir un fragmento de código PHP al archivo <code>functions.php</code> del tema (o a un plugin de fragmentos de código):</p>
+<pre style="background:#f8f9fb;border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;font-size:0.85rem;"><code>add_filter( 'wp_image_editor_output_format', function( $formats ) {
+    $formats['image/jpeg'] = 'image/webp';
+    return $formats;
+});</code></pre>
+<p>Ventajas: no depende de plugins externos, usa la infraestructura propia de WordPress. Inconvenientes: requiere tocar código, solo afecta a las imágenes subidas después de activarlo (no convierte retroactivamente la biblioteca existente), y el control de calidad es más limitado que convirtiendo manualmente.</p>
+
+<h2>Cómo saber si tu WordPress ya está sirviendo WebP</h2>
+<p>Abre cualquier página de tu web con las herramientas de desarrollador del navegador (F12), ve a la pestaña "Network", filtra por "Img" y recarga la página. En la columna "Type" verás el formato real de cada imagen servida. Si ves <code>jpeg</code> o <code>png</code> en imágenes de contenido (no en iconos del propio tema), esas son las que se beneficiarían de convertirse a WebP. También puedes analizar la URL completa de tu web en PageSpeed Insights: la herramienta lista explícitamente las imágenes que recomienda servir en formato de nueva generación.</p>
+
+<h2>WebP, SEO y la biblioteca de medios de WordPress</h2>
+<p>Cambiar el formato de una imagen no afecta directamente al posicionamiento por sí mismo, pero sí lo hace de forma indirecta: Google usa la velocidad de carga (a través de Core Web Vitals) como factor de ranking, y las imágenes suelen ser el mayor peso de una página. Un detalle a cuidar al migrar a WebP en WordPress es mantener el texto alternativo (<code>alt</code>) de cada imagen: al subir manualmente las versiones WebP conviene copiar el mismo texto alternativo que tenía la imagen original, ya que WordPress no lo traslada automáticamente entre archivos distintos de la biblioteca de medios.</p>
+
+<h2>WebP y los plugins de caché</h2>
+<p>Si usas un plugin de caché (WP Rocket, W3 Total Cache, LiteSpeed Cache, entre otros), muchos incluyen su propia opción de "servir imágenes en WebP" o "next-gen formats", que suele funcionar generando automáticamente una copia WebP de cada imagen y sirviéndola solo a los navegadores compatibles mediante reglas de servidor. Si ya usas uno de estos plugins, conviene revisar esa opción en su configuración antes de instalar un plugin adicional específico de conversión, para evitar procesar las mismas imágenes dos veces.</p>
+
+<h2>¿Cuál elegir?</h2>
+<p>Si publicas pocas imágenes y quieres control total sobre la calidad, el método 1 (convertir antes de subir) es el más simple y el que menos dependencias añade a tu WordPress. Si subes imágenes con mucha frecuencia y prefieres no pensar en ello, un plugin de optimización automatiza el proceso a cambio de una dependencia externa. El método nativo es una buena opción intermedia si ya sabes tocar <code>functions.php</code> y quieres evitar plugins adicionales.</p>
+
+    <div class="cta-box">
+      <p><strong>Convierte tus imágenes a WebP gratis, ahora mismo</strong><br>JPG, JPEG y PNG en una sola herramienta. Sin subir archivos a ningún servidor.</p>
+      <a class="btn" href="/">Abrir el convertidor</a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; 2026 convertidorwebp.com &middot; Free tool &middot; Made with &#10084;&#65039; &middot; <a href="/aviso-legal/" style="color:var(--muted);">Aviso legal</a> &middot; <a href="/politica-privacidad/" style="color:var(--muted);">Privacidad</a></p>
+</footer>
+
+</body>
+</html>

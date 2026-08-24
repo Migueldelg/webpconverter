@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- GOOGLE CONSENT MODE V2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optimizar imágenes para velocidad web y Core Web Vitals | convertidorwebp.com</title>
+  <meta name="description" content="Guía práctica para optimizar imágenes y mejorar Core Web Vitals: formato, tamaño, compresión, carga diferida y buenas prácticas para PageSpeed Insights." />
+  <meta name="keywords" content="optimizar imágenes web, core web vitals, velocidad de carga web, pagespeed insights imágenes, lcp imágenes" />
+  <meta property="og:title" content="Cómo optimizar imágenes para que tu web cargue más rápido (Core Web Vitals)" />
+  <meta property="og:description" content="Guía práctica para optimizar imágenes y mejorar Core Web Vitals: formato, tamaño, compresión, carga diferida y buenas prácticas para PageSpeed Insights." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.convertidorwebp.com/blog/optimizar-imagenes-velocidad-web/" />
+  <link rel="canonical" href="https://www.convertidorwebp.com/blog/optimizar-imagenes-velocidad-web/" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cómo optimizar imágenes para que tu web cargue más rápido (Core Web Vitals)",
+    "description": "Guía práctica para optimizar imágenes y mejorar Core Web Vitals: formato, tamaño, compresión, carga diferida y buenas prácticas para PageSpeed Insights.",
+    "datePublished": "2026-08-24",
+    "dateModified": "2026-08-24",
+    "author": { "@type": "Organization", "name": "convertidorwebp.com" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "convertidorwebp.com",
+      "logo": { "@type": "ImageObject", "url": "https://www.convertidorwebp.com/favicon.ico" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.convertidorwebp.com/blog/optimizar-imagenes-velocidad-web/" }
+  }
+  </script>
+  <!-- GOOGLE ADSENSE -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7213402290601307" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8f9fb; --surface: #ffffff; --border: #e2e6ea;
+      --primary: #4f46e5; --primary-hover: #4338ca;
+      --text: #1e1e2e; --muted: #6b7280; --success: #16a34a; --radius: 14px;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh;
+    }
+    header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+    .logo span { color: var(--text); }
+    nav.subnav { font-size: 0.82rem; }
+    nav.subnav a { color: var(--muted); text-decoration: none; margin-left: 16px; }
+    nav.subnav a:hover { color: var(--primary); }
+    main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+    main.wide { max-width: 980px; }
+    h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; margin-bottom: 10px; line-height: 1.25; }
+    .subtitle { color: var(--muted); margin-bottom: 28px; font-size: 1rem; }
+    .meta-row { color: var(--muted); font-size: 0.85rem; margin-bottom: 32px; display:flex; gap:12px; flex-wrap:wrap; }
+    article h2 { font-size: 1.25rem; font-weight: 700; margin: 32px 0 12px; }
+    article p { color: var(--text); line-height: 1.75; font-size: 0.98rem; margin-bottom: 14px; }
+    article ul, article ol { color: var(--text); line-height: 1.75; font-size: 0.98rem; padding-left: 22px; margin-bottom: 14px; }
+    article li { margin-bottom: 6px; }
+    article a { color: var(--primary); }
+    article code { background:#eef2ff; padding:2px 6px; border-radius:4px; font-size:0.88em; }
+    .cta-box {
+      background: #eef2ff; border: 1px solid #c7d2fe; border-radius: var(--radius);
+      padding: 24px; margin: 40px 0; text-align: center;
+    }
+    .cta-box p { color: var(--text); margin-bottom: 14px; }
+    .btn { display:inline-block; padding: 10px 24px; border-radius: 8px; border: none; font-size: 0.95rem;
+      font-weight: 600; cursor: pointer; background: var(--primary); color: #fff; text-decoration:none; }
+    .btn:hover { background: var(--primary-hover); }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin: 8px 0 40px; }
+    .blog-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; display: flex; flex-direction: column; text-decoration: none; color: var(--text);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .blog-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .blog-card h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--text); line-height: 1.4; }
+    .blog-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; flex: 1; }
+    .blog-card .read-more { color: var(--primary); font-size: 0.85rem; font-weight: 600; margin-top: 14px; }
+    footer { text-align: center; padding: 24px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 20px; }
+    .back-link { display:inline-block; margin-bottom: 20px; color: var(--muted); text-decoration:none; font-size: 0.88rem; }
+    .back-link:hover { color: var(--primary); }
+</style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H0KK1JYQKK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H0KK1JYQKK');
+  </script>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="/">convertidor<span>webp</span>.com</a>
+  <nav class="subnav">
+    <a href="/">Convertidor</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+
+<main>
+  <a class="back-link" href="/blog/">&larr; Volver al blog</a>
+  <article>
+    <h1>Cómo optimizar imágenes para que tu web cargue más rápido (Core Web Vitals)</h1>
+    <div class="meta-row"><span>Publicado el 24 de agosto de 2026</span><span>&middot;</span><span>4 min de lectura</span></div>
+
+<p>Según los informes anuales del estado de la web (como el HTTP Archive), las imágenes representan de media entre el 40% y el 50% del peso total de una página. Es, con diferencia, el recurso con más margen de optimización en la mayoría de sitios. Esta guía cubre las técnicas que más impacto tienen, ordenadas de mayor a menor prioridad.</p>
+
+<h2>1. Elige el formato correcto</h2>
+<p>El primer ahorro, y el más fácil de conseguir, es el formato. Convertir fotografías de JPG a WebP reduce el peso entre un 25% y un 34% sin pérdida de calidad perceptible; convertir gráficos, logos o capturas de PNG a WebP puede ahorrar hasta un 80% en algunos casos. Si tu web todavía sirve imágenes en JPG o PNG, este es el cambio con mejor relación esfuerzo-resultado que puedes hacer hoy mismo.</p>
+
+<h2>2. No sirvas imágenes más grandes de lo necesario</h2>
+<p>Es habitual subir una foto de 4000×3000 píxeles directamente desde una cámara o móvil para mostrarla en un espacio de 800×600 en la web. El navegador la descarga entera y la reescala visualmente, desperdiciando ancho de banda. Antes de subir una imagen, redimensiónala al tamaño máximo real al que se va a mostrar (o al doble, si quieres cubrir pantallas de alta densidad como Retina).</p>
+
+<h2>3. Ajusta la calidad de compresión</h2>
+<p>No hace falta usar siempre el 100% de calidad. Para la mayoría de fotografías web, un valor de calidad entre el 75% y el 85% es visualmente indistinguible del original pero reduce notablemente el peso del archivo. Solo en casos donde la imagen se va a ampliar mucho (zoom de producto, por ejemplo) tiene sentido subir la calidad por encima del 90%.</p>
+
+<h2>4. Usa carga diferida (lazy loading)</h2>
+<p>Añadir el atributo <code>loading="lazy"</code> a las etiquetas <code>&lt;img&gt;</code> que están fuera de la primera pantalla (below the fold) evita que el navegador las descargue hasta que el usuario esté a punto de verlas. Es una línea de código con impacto directo en el tiempo de carga inicial.</p>
+
+<h2>5. Reserva el espacio con width y height</h2>
+<p>Especificar los atributos <code>width</code> y <code>height</code> (o su equivalente en CSS con <code>aspect-ratio</code>) permite al navegador reservar el espacio de la imagen antes de que termine de descargarse, evitando saltos de layout. Esto afecta directamente a la métrica CLS (Cumulative Layout Shift) de Core Web Vitals.</p>
+
+<h2>6. Cuida especialmente la imagen LCP</h2>
+<p>La métrica LCP (Largest Contentful Paint) mide cuánto tarda en aparecer el elemento más grande visible al cargar la página, que en la mayoría de sitios es una imagen (una foto de cabecera, un banner, la imagen destacada de un artículo). Esa imagen concreta nunca debería llevar <code>loading="lazy"</code> —se necesita cuanto antes—, y conviene que esté en el formato más ligero posible (WebP) y con el tamaño ya optimizado.</p>
+
+<h2>Herramientas para medir el peso real de tus imágenes</h2>
+<p>Antes de optimizar conviene saber dónde estás perdiendo tiempo de carga. Las herramientas más útiles y gratuitas son PageSpeed Insights (de Google, analiza una URL pública y da una puntuación junto con recomendaciones concretas), Lighthouse (integrado en las herramientas de desarrollador de Chrome, útil también en local o en desarrollo), y la pestaña "Network" del propio navegador, que muestra el peso y tiempo de descarga de cada imagen individual al cargar la página.</p>
+
+<h2>Imágenes responsive: sirve el tamaño correcto según el dispositivo</h2>
+<p>Además de optimizar cada imagen individualmente, puedes servir distintos tamaños según el dispositivo del visitante usando el atributo <code>srcset</code>:</p>
+<pre style="background:#f8f9fb;border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;font-size:0.85rem;"><code>&lt;img
+  src="producto-800.webp"
+  srcset="producto-400.webp 400w, producto-800.webp 800w, producto-1200.webp 1200w"
+  sizes="(max-width: 600px) 400px, 800px"
+  alt="Nombre del producto" /&gt;</code></pre>
+<p>Con esto, un móvil descarga la versión de 400 px en lugar de la de 1200 px pensada para escritorio, ahorrando datos y tiempo de carga sin que tengas que mantener versiones separadas de la página.</p>
+
+<h2>Errores comunes al optimizar imágenes</h2>
+<ul>
+  <li><strong>Comprimir en exceso:</strong> bajar la calidad por debajo del 60-65% suele introducir artefactos visibles (sobre todo en fotografías con cielos, piel o degradados suaves) sin un ahorro de peso proporcional.</li>
+  <li><strong>Olvidar la imagen LCP:</strong> aplicar <code>loading="lazy"</code> a la imagen principal de la primera pantalla retrasa precisamente la métrica que más se quiere mejorar.</li>
+  <li><strong>No comprobar el resultado en un dispositivo real:</strong> las diferencias de compresión a veces solo se notan en pantallas de alta densidad; conviene revisar en un móvil real antes de dar por bueno un nivel de calidad.</li>
+  <li><strong>Subir directamente la foto de la cámara sin redimensionar:</strong> es, con diferencia, la causa más habitual de páginas lentas en sitios gestionados sin un flujo de optimización establecido.</li>
+</ul>
+
+<h2>Resumen del proceso recomendado</h2>
+<ol>
+  <li>Redimensiona la imagen al tamaño real que necesitas.</li>
+  <li>Conviértela a WebP con una calidad entre 75% y 85%.</li>
+  <li>Añade <code>width</code>, <code>height</code> y, si está fuera de la primera pantalla, <code>loading="lazy"</code>.</li>
+  <li>Vuelve a medir con PageSpeed Insights o Lighthouse para confirmar la mejora.</li>
+</ol>
+<p>El paso de conversión a WebP puedes hacerlo gratis y por lotes (hasta 10 imágenes a la vez) en <a href="/">convertidorwebp.com</a>, ajustando la calidad con un control deslizante antes de descargar.</p>
+
+    <div class="cta-box">
+      <p><strong>Convierte tus imágenes a WebP gratis, ahora mismo</strong><br>JPG, JPEG y PNG en una sola herramienta. Sin subir archivos a ningún servidor.</p>
+      <a class="btn" href="/">Abrir el convertidor</a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; 2026 convertidorwebp.com &middot; Free tool &middot; Made with &#10084;&#65039; &middot; <a href="/aviso-legal/" style="color:var(--muted);">Aviso legal</a> &middot; <a href="/politica-privacidad/" style="color:var(--muted);">Privacidad</a></p>
+</footer>
+
+</body>
+</html>
